@@ -55,7 +55,7 @@ def main(config):
             low=-np.sqrt(6.0 / (config['n_input'] + config['n_hidden'])),    #np.sqrt是平方根
             high=np.sqrt(6.0 / (config['n_input'] + config['n_hidden'])),
             size=(config['n_input'], config['n_hidden'])
-        ) / 2.0,   #数组元素变成一半
+        ) / 2.0,   #数组元素值变成一半
         dtype=np.float32
     )
 

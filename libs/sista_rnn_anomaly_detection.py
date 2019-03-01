@@ -7,7 +7,7 @@ import os
 import h5py
 import pickle
 from collections import OrderedDict
-
+#hello
 class sista_rnn_anomaly_detection(base):
     def __init__(self, input, label, A_initializer, sess, config):
         self.A_initializer = A_initializer
@@ -24,7 +24,7 @@ class sista_rnn_anomaly_detection(base):
     def _body(self, input):
         model = sista_rnn(input[0], input[1], self.config['n_hidden'], self.config['K'], self.config['gama'], self.config['lambda1'], self.config['lambda2'], self.A_initializer)
         h, parameters = model.forward()
-        return h[..., -self.config['n_hidden']:], list(parameters.values())   #numpy数组中 ...可以用来作切片   h: T * BATCH * (K*n_hid)
+        return h[..., -self.config['n_hidden']:], list(parameters.values())   #numpy数组中 ...可以用来作切片(多个冒号可以用一个省略号表示,这也可写为h[:,:,-self.config['n_hidden]:]   h: T * BATCH * (K*n_hid)
         #返回一个同样shape，但是最后一维变成 n_hidden的三维数组  T*BATCH*n_hid  就是第k层的h
 
     def _get_statistics(self):
